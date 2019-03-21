@@ -69,7 +69,6 @@ describe "Pokemon" do
     # Now we alter Magikarp's hp
     it "alters Magikarp's hp" do
       magikarp.alter_hp(0, @db)
-      binding.pry
       expect(Pokemon.find(2, @db).hp).to eq(0)
     end
   end
