@@ -1,6 +1,4 @@
-require 'pry'
 class Pokemon
-<<<<<<< HEAD
   attr_accessor :id, :name, :type, :db, :hp
   @@all = []
   def initialize(id: nil, name: nil, type: nil, db: nil)
@@ -25,11 +23,8 @@ class Pokemon
   end
 
   def alter_hp(new_hp, db)
-    db.execute("UPDATE pokemon SET hp = (?)", new_hp)
+    db.execute("UPDATE pokemon SET hp = (?) where id = (?)", new_hp, @id)
     self.hp = new_hp
   end
 
-  def self.save(name, type, db)
-    db.execute("INSERT INTO pokemon (name, type) VALUES (#{name}, #{type})")
-  end
 end
